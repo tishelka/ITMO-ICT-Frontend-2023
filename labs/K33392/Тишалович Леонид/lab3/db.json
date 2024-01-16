@@ -60,5 +60,23 @@
       "brand": "Jhanvi's Brand",
       "gender": "male"
     }
+  ],
+  "orders": [
+    {
+      "items": [
+        "Black Shorts",
+        "Black Hoodie"
+      ],
+      "totalAmount": 74,
+      "id": 1
+    },
+    {
+      "items": [
+        "White T-Shirt",
+        "Denim Blue Shirt"
+      ],
+      "totalAmount": 70,
+      "id": 2
+    }
   ]
 }

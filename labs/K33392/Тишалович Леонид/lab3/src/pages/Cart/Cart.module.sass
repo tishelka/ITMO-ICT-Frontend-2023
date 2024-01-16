@@ -2,10 +2,34 @@
     display: flex
     flex-direction: column
     gap: var(--spacing-medium)
-    padding-left: 100px
     padding-top: 100px
+    padding-bottom: 100px 
 
-    .itemSelection
+    .cartTitle
+        padding-left: 100px 
+
+    .mainContent
         display: flex
-        flex-wrap: wrap
-        gap: 36px
+        flex-direction: column
+        align-items: center
+        gap: 70px
+
+        .itemSelection
+            display: flex
+            flex-direction: column
+            gap: 50px
+            align-items: center
+
+        .total
+            display: flex
+            flex-direction: column
+            gap: 10px
+
+            button
+                background-color: var(--button-background)
+                border: none
+                border-radius: var(--button-border-radius)
+                color: var(--color-white)
+                width: var(--button-width)
+                height: var(--button-height)
+                cursor: pointer
