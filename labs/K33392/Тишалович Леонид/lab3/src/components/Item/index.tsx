@@ -6,7 +6,7 @@ type ItemProps = {
   img: string;
   price: number;
   brand: string;
-  addToCart: () => void;
+  addToCart?: () => void;
 };
 
 export const Item = ({ title, img, price, brand, addToCart }: ItemProps) => {

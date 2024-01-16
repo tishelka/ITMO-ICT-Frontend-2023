@@ -9,7 +9,7 @@ import { Header } from "../../components/index";
 import style from "./Main.module.sass";
 import { Item } from "../../components/index";
 
-type ItemData = {
+export type ItemData = {
   id: number;
   title: string;
   img: string;
@@ -22,6 +22,9 @@ export type CartItem = {
   title: string;
   price: number;
   img: string;
+  brand: string;
+  gender: string;
+  id: number;
 };
 
 export const Main = () => {
@@ -30,7 +33,7 @@ export const Main = () => {
   const selectedGender = useSelector(
     (state: RootState) => state.filter.selectedGender
   );
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  // const cartItems = useSelector((state: RootState) => state.cart.items);
   const [data, setData] = useState<ItemData[]>([]);
 
   useEffect(() => {
@@ -51,6 +54,9 @@ export const Main = () => {
         title: item.title,
         price: item.price,
         img: item.img,
+        brand: item.brand,
+        gender: item.gender,
+        id: item.id,
       })
     );
   };
@@ -88,7 +94,6 @@ export const Main = () => {
         setSelectedGender={(gender: string) =>
           dispatch(setSelectedGender(gender))
         }
-        cartItems={cartItems}
         onSearch={(query: string) => dispatch(setSearchQuery(query))}
       />
       <section className={style.feed}>

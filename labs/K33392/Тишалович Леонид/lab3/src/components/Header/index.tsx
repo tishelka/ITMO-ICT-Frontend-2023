@@ -1,26 +1,20 @@
 import style from "./Header.module.sass";
-import { CartPopup } from "../CartPopup";
-import { CartItem } from "../../pages/Main";
 import { useState, useEffect } from "react";
 import lightTheme from "../../assets/lightTheme.png";
 import darkTheme from "../../assets/darkTheme.png";
 import { Icon } from "../index";
+import { useNavigate } from "react-router-dom";
 
 type HeaderProps = {
   setSelectedGender: (gender: string) => void;
-  cartItems: CartItem[];
   onSearch?: (query: string) => void;
 };
 
-export const Header = ({
-  setSelectedGender,
-  cartItems,
-  onSearch,
-}: HeaderProps) => {
-  const [isCartPopupVisible, setCartPopupVisible] = useState<boolean>(false);
+export const Header = ({ setSelectedGender, onSearch }: HeaderProps) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [theme, setTheme] = useState<string>("light");
   const [icon, setIcon] = useState(lightTheme);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -44,7 +38,7 @@ export const Header = ({
   };
 
   const handleCartIconClick = () => {
-    setCartPopupVisible((prev) => !prev);
+    navigate("/cart");
   };
 
   return (
@@ -74,7 +68,6 @@ export const Header = ({
         <button className={style.cartBtn}>
           <div onClick={handleCartIconClick}>
             <Icon id="Cart" />
-            {isCartPopupVisible && <CartPopup items={cartItems} />}
           </div>
         </button>
         <button onClick={toggleTheme} className={style.themeBtn}>

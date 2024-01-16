@@ -1,4 +1,4 @@
-import { SignInPage, Main } from "./pages/index";
+import { SignInPage, Main, Cart } from "./pages/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./main.sass";
 import { Provider } from "react-redux";
@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignInPage />} />;
           <Route path="main" element={<Main />} />
+          <Route path="cart" element={<Cart />}></Route>
         </Routes>
       </Router>
     </Provider>
